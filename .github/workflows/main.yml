@@ -8,11 +8,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Install SSH key
-      uses: shimataro/ssh-key-action@v2
+    - name: deploy file
+      uses: wlixcc/SFTP-Deploy-Action@v1.0
       with:
-          key: ${{ SSH_PRIVATE_KEY.SSH_PRIVATE_KEY }}
-          name: id_rsa
-          known_hosts: ${{ SSH_PRIVATE_KEY.KNOWN_HOSTS }}
-    - name: rsync over ssh
-      run: ./deploy_to_aws.sh
+        username: 'root'
+        server: ${{ secrets.KNOWN_HOSTS }}
+        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+    
+     
