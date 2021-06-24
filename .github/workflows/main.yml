@@ -11,7 +11,7 @@ jobs:
     - name: deploy file
       uses: wlixcc/SFTP-Deploy-Action@v1.0
       with:
-        username: 'root'
+        username: 'ec2-user'
         server: ${{ secrets.KNOWN_HOSTS }}
         ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
     
