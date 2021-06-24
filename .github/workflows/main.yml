@@ -11,8 +11,8 @@ jobs:
     - name: Install SSH key
       uses: shimataro/ssh-key-action@v2
       with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ SSH_PRIVATE_KEY.SSH_PRIVATE_KEY }}
           name: id_rsa
-          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          known_hosts: ${{ SSH_PRIVATE_KEY.KNOWN_HOSTS }}
     - name: rsync over ssh
       run: ./deploy_to_aws.sh
